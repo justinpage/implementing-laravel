@@ -30,16 +30,7 @@ class GoodbyeCruelWorld implements GreetableInterface {
 	}
 }
 
-Route::get('/container', function()
-{
-	$app = App::getFacadeRoot();
+App::bind('GreetableInterface', 'GoodbyeCruelWorld');
 
-	$app->bind('GreetableInterface', function()
-	{
-		return new GoodbyeCruelWorld;
-	});
+Route::get('/container', 'ContainerController@container');
 
-	$greeter = $app->make('GreetableInterface');
-
-	return $greeter->greet();
-});
