@@ -11,14 +11,35 @@
 |
 */
 
+interface GreetableInterface
+{
+	public function greet();
+}
+
+class HelloJustin implements GreetableInterface {
+	public function greet()
+	{
+		return 'Hello, Justin!';
+	}
+}
+
+class GoodbyeCruelWorld implements GreetableInterface {
+	public function greet()
+	{
+		return 'Goodbye cruel, unforgiving, world!';
+	}
+}
+
 Route::get('/container', function()
 {
 	$app = App::getFacadeRoot();
 
-	$app['hi'] = function()
+	$app->bind('GreetableInterface', function()
 	{
-		return "Hello, Justin";
-	};
+		return new GoodbyeCruelWorld;
+	});
 
-	return $app['hi'];
+	$greeter = $app->make('GreetableInterface');
+
+	return $greeter->greet();
 });
