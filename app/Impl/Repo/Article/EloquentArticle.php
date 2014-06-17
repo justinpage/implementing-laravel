@@ -71,7 +71,7 @@ class EloquentArticle extends RepoAbstract implements ArticleInterface {
 	 */
 	public function byTag($tag, $page=1, $limit=10)
 	{
-		$foundTag = $this->tag->where('slug' $tag)->first();
+		$foundTag = $this->tag->where('slug', $tag)->first();
 
 		$result = new \StdClass;
 		$result->page = $page;

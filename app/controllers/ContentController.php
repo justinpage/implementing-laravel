@@ -7,7 +7,7 @@ class ContentController extends \BaseController
 	protected $article;
 
 	// Class Dependancy: Sublclass of ArticleInterface
-	protected function __construct(ArticleInterface $article)
+	public function __construct(ArticleInterface $article)
 	{
 		$this->article = $article;
 	}

@@ -1,5 +1,6 @@
 <?php namespace Impl\Repo\Tag;
 
+use Impl\Repo\RepoAbstract;
 use Illuminate\Database\Eloquent\Model;
 /* use Impl\Service\Cache\CacheInterface; */
 
