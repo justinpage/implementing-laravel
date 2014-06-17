@@ -11,26 +11,5 @@
 |
 */
 
-interface GreetableInterface
-{
-	public function greet();
-}
-
-class HelloJustin implements GreetableInterface {
-	public function greet()
-	{
-		return 'Hello, Justin!';
-	}
-}
-
-class GoodbyeCruelWorld implements GreetableInterface {
-	public function greet()
-	{
-		return 'Goodbye cruel, unforgiving, world!';
-	}
-}
-
-App::bind('GreetableInterface', 'GoodbyeCruelWorld');
-
-Route::get('/container', 'ContainerController@container');
+Route::resource('content', 'ContentController');
 

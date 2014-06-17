@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Eloquent\SoftDeletingTraits;
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class Article extends \Eloquent {
-	use SoftDeletingTraits;
+	use SoftDeletingTrait;
 
 	/**
 	 * The database table used by the model
