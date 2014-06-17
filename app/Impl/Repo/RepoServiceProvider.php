@@ -18,5 +18,6 @@ class RepoServiceProvider extends ServiceProvider {
 		{
 			return new EloquentArticle( new Article, $app->make('Impl\Repo\Tag\TagInterface'));
 		});
+
 	}
 }

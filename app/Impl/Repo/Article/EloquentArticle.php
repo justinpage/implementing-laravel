@@ -1,9 +1,10 @@
 <?php namespace Impl\Repo\Article;
 
+use Impl\Repo\RepoAbstract;
 use Impl\Repo\Tag\TagInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class EloquentArticle implements ArticleInterface {
+class EloquentArticle extends RepoAbstract implements ArticleInterface {
 
 	protected $model;
 	protected $tag;
