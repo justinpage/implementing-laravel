@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EloquentArticle extends RepoAbstract implements ArticleInterface {
 
-	protected $model;
+	protected $article;
 	protected $tag;
 
 	// Class dependency: Eloquent model and
