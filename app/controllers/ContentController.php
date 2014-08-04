@@ -15,16 +15,20 @@ class ContentController extends \BaseController
 	// Home page for content
 	public function index()
 	{
+		// Get page, default to 1 if not present
 		$page = Input::get('page', 1);
-		$perPage = 10;
 
-		// Get 10 latest articles with pagination
-		// Still get "arrayable" collection of articles
-		$pagiData = $this->article->byPage($page, $perPage);
+		// candidate for config item
+		$perPage = 3;
 
-		// Pagination made here, it's not the responsibility
-		// of the repository. See section on cacheing layer.
-		$articles = Paginator::make($pagiData->items, $pagiData->totalItems, $perPage);
+		// Include which $page we are currently on
+		$pagiData = $this->article->byPage($page);
+
+		$articles = Paginator::make(
+			$pagiData->items, 
+			$pagiData->totalItems,
+			$perPage
+		);
 
 		return View::make('content.index')->with('articles', $articles);
 	}

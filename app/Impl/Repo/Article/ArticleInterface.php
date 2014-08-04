@@ -28,5 +28,4 @@ interface ArticleInterface {
 	 * @return object Object with $items and $totalItems for pagination
 	 */
 	public function byTag($tag, $page=1, $limit=10);
-
 }

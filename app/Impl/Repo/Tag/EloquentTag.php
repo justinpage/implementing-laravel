@@ -2,17 +2,17 @@
 
 use Impl\Repo\RepoAbstract;
 use Illuminate\Database\Eloquent\Model;
-/* use Impl\Service\Cache\CacheInterface; */
+use Impl\Service\Cache\CacheInterface;
 
 class EloquentTag extends RepoAbstract implements TagInterface {
 
 	protected $tag;
-	// protected $cache;
-    //
-	public function __construct(Model $tag)
+	protected $cache;
+
+	public function __construct(Model $tag, CacheInterface $cache)
 	{
 		$this->tag = $tag;
-		/* $this->cache = $cache; */
+		$this->cache = $cache;
 	}
 
 	/**
